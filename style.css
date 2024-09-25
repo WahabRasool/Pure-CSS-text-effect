@@ -1,0 +1,39 @@
+@charset "UTF-8";
+@import url("https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap");
+html, body, div {
+  display: grid;
+}
+
+html {
+  min-height: 100%;
+}
+
+body {
+  --s: 4px;
+  --o: .5*var(--s);
+  background: url(https://images.unsplash.com/photo-1530533609496-06430e875bbf?w=1600) 50%/cover;
+  font: clamp(5em, Min(65vh, 35vw), 39em)/0.75 bebas neue, sans-serif;
+}
+@media (min-width: 480px) and (min-height: 320px) {
+  body {
+    --s: 6px ;
+  }
+}
+@supports (line-height: 1cap) {
+  body {
+    line-height: 1cap;
+  }
+}
+
+div {
+  --sl: calc(50% - .5px), #0000 calc(50% + .5px);
+  place-self: center;
+  place-content: center;
+  padding: Round(up, 0.1em, var(--s)) 0.05em 0 0;
+  height: calc(Round(up, 1lh, var(--s)) - var(--o));
+  background: linear-gradient(22.5deg, #fff var(--sl)) text, linear-gradient(22.5deg, #000 var(--sl)), linear-gradient(#094770 50%, #0000 0) 0 0/1% var(--s);
+  color: #0000;
+  -webkit-text-stroke: #fff calc(var(--o));
+  text-transform: uppercase;
+  mix-blend-mode: screen;
+}
